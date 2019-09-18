@@ -1,0 +1,278 @@
+/**
+ * Created by Sergiu Ghenciu on 08/12/2017
+ */
+/**
+ * Created by Sergiu Ghenciu on 23/12/2017
+ */
+html {
+  height: 100%;
+  font-size: 16px; }
+
+@media only screen and (min-width: 993px) {
+  html {
+    font-size: 14px; } }
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%; }
+  #me .container {
+    width: 90%; } }
+
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 70%; }
+  #me .container {
+    width: 85%; } }
+
+body {
+  min-height: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif; }
+
+[class*="mi_"] {
+  speak: none;
+  line-height: inherit;
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  font-size: inherit;
+  font-variant: normal;
+  text-rendering: auto;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: 'liga';
+  transition: .3s color; }
+
+[class*="mi_"]:before {
+  display: inline-block;
+  speak: none;
+  text-decoration: inherit; }
+
+.mi_arrow_back:before {
+  content: "\e5C4"; }
+
+.mi_close:before {
+  content: "\e5CD"; }
+
+.mi_search:before {
+  content: "\E8B6"; }
+
+#hi {
+  background-position: center center;
+  background-size: cover;
+  background-image: url("/images/white-desktop.jpg"); }
+
+#hi h2 {
+  margin-bottom: 0; }
+
+#me {
+  width: 60%; }
+
+#rubymage {
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  /*max-width:200px;*/
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: .2s; }
+
+#rubymage img {
+  width: 100%;
+  max-width: 205px; }
+
+.openRM,
+.closeRM {
+  display: none;
+  font-size: 2.4rem;
+  color: rgba(0, 0, 0, 0.87); }
+
+.closeRM {
+  color: #fff; }
+
+@media only screen and (max-width: 992px) {
+  #me {
+    width: 100%; }
+  #rubymage {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    left: 100%;
+    overflow-y: auto; }
+  #rubymage.open {
+    left: 0; }
+  .openRM,
+  .closeRM {
+    display: inline-block; } }
+
+.personal-skills .icon-block .material-icons {
+  font-size: inherit; }
+
+#skills .container {
+  overflow: hidden; }
+
+#skills li {
+  z-index: 1;
+  position: relative;
+  right: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 3px;
+  height: 30px; }
+
+#skills li:hover {
+  background-color: rgba(0, 0, 0, 0.87); }
+
+#skills li span {
+  display: none;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-left: 1rem;
+  line-height: 30px; }
+
+#skills li:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  line-height: 30px;
+  text-align: right;
+  letter-spacing: 1px;
+  color: #aaa; }
+
+#skills li.s100:after {
+  content: "100%"; }
+
+#skills li.s90:after {
+  content: "90%"; }
+
+#skills li.s80:after {
+  content: "80%"; }
+
+#skills li.s70:after {
+  content: "70%"; }
+
+#skills li.s60:after {
+  content: "60%"; }
+
+#skills li.s50:after {
+  content: "50%"; }
+
+#skills li.s40:after {
+  content: "40%"; }
+
+#skills li.s30:after {
+  content: "30%"; }
+
+#skills li.s20:after {
+  content: "20%"; }
+
+#skills li.s10:after {
+  content: "10%"; }
+
+li.s100 {
+  width: 100%; }
+
+li.s90 {
+  width: 90%; }
+
+li.s80 {
+  width: 80%; }
+
+li.s70 {
+  width: 70%; }
+
+li.s60 {
+  width: 60%; }
+
+li.s50 {
+  width: 50%; }
+
+li.s40 {
+  width: 40%; }
+
+li.s30 {
+  width: 30%; }
+
+li.s20 {
+  width: 20%; }
+
+li.s10 {
+  width: 10%; }
+
+#technologies ul:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+#technologies li {
+  float: left;
+  border: 1px solid #555;
+  padding: 3px 9px;
+  margin: 0 6px 6px 0; }
+
+.footer.section {
+  margin-top: 50px;
+  margin-bottom: 30px; }
+
+@media print {
+  #me {
+    width: auto; }
+  #me .section {
+    height: auto !important; }
+  #rubymage,
+  .contact.section,
+  .hi.section h3,
+  .technical-skills.section {
+    display: none; }
+  #skills li {
+    right: 0 !important;
+    background-color: #404040 !important;
+    -webkit-print-color-adjust: exact; }
+  #skills li span {
+    display: inline !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact; }
+  .personal-skills.section .container > .row {
+    /*-webkit-column-count: 3; /!* Chrome, Safari, Opera *!/*/
+    /*-moz-column-count: 3; /!* Firefox *!/*/
+    /*column-count: 3;*/
+    position: relative; }
+  .personal-skills.section .container > .row > .col {
+    width: 33.3333333%;
+    position: absolute; }
+  .personal-skills.section .container > .row > .col:nth-of-type(1) {
+    top: 0;
+    left: 0; }
+  .personal-skills.section .container > .row > .col:nth-of-type(2) {
+    top: 0;
+    left: 33.33333333%; }
+  .personal-skills.section .container > .row > .col:nth-of-type(3) {
+    top: 0;
+    left: 66.66666666%; }
+  .hi.section {
+    min-height: 590px; }
+  .about-me.section {
+    /*margin-top: 400px;*/ }
+  .personal-skills.section {
+    min-height: 920px; }
+  .experience .amalytics {
+    min-height: 870px; }
+  .experience .casgon {
+    min-height: 500px; }
+  .experience span[style*="color:"] {
+    color: #ddd !important; }
+  .education.section {
+    margin-top: -10px; }
+  .footer.section {
+    margin-top: 60px;
+    margin-bottom: 0px; } }

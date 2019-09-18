@@ -1,0 +1,36 @@
+{
+  "name": "pretty-json",
+  "version": "2.1.1",
+  "homepage": "https://github.com/warfares/pretty-json",
+  "authors": [
+    "warfares"
+  ],
+  "description": "Simple library to render/format a JS obj to an HTML view.",
+  "main": [
+    "dist/pretty-json.min.js",
+    "dist/pretty-json.css"
+  ],
+  "keywords": [
+    "json",
+    "pretty"
+  ],
+  "license": "None",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "libs"
+  ],
+  "_release": "2.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.1",
+    "commit": "d17f0d2c6172f7d534d1b1fcb0c1daa47bdd7b74"
+  },
+  "_source": "https://github.com/timCF/pretty-json.git",
+  "_target": "^2.1.1",
+  "_originalSource": "pretty-json",
+  "_direct": true
+}

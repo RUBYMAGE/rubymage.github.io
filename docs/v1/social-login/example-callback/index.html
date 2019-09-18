@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Social Login Example Callback - RUBYMAGE</title>
+    <!-- css -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Quicksand" rel="stylesheet">
+    <link href="/docs/v1/my_components/materialize/dist/css/materialize.css" rel="stylesheet">
+    <link href="/docs/v1/my_components/pretty-json/dist/pretty-json.css" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+<style>
+    html,
+    body {
+        height: 100%;
+    }
+
+    body > .content {
+        height: calc(100% - 200px);
+    }
+    h2  {
+        font-size: 1.64rem;
+        margin-top:2rem;
+    }
+
+    .valign-wrapper {
+        min-height: 100%;
+    }
+
+    .valign-wrapper .valign {
+        width: 100%;
+    }
+
+    .header {
+        height: 200px;
+    }
+
+    .header h1 {
+        display: inline-block;
+        margin-top: 90px;
+        color: #fff;
+        font-size: 3.5rem;
+    }
+
+    @media screen and (max-width: 760px) {
+        .header {
+            height: 128px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            margin-top: 70px;
+        }
+    }
+
+    @media screen and (max-width: 460px) {
+        .header h1 {
+            margin-top: 50px;
+        }
+    }
+
+    .mood .material-icons {
+        font-size: 4rem;
+        margin-bottom: 25px;
+    }
+
+    .code {
+        white-space: nowrap;
+        display: block;
+        font-family: monospace, monospace;
+        padding: 1rem;
+        overflow: auto;
+        line-height: 1.45;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        background-color: #f7f7f7;
+        border-radius: 2px;
+        webkit-text-size-adjust: none;
+    }
+    var {
+        font-style: normal;
+        color:#c82829;
+    }
+    .var {
+        font-size: 1.15rem;
+    }
+    .response .body {
+        /*font-size: 1.15rem;*/
+    }
+
+
+    .loading .preloader-wrapper {vertical-align:top; margin-right:7px; width:26px;height:26px;}
+    .loading > span {line-height:27px; height:26px; display:inline-block; vertical-align:top;}
+
+
+    [class*="status-2"]:before,
+    [class*="status-4"]:before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background-color: #5bb349;
+        margin-right: 5px;
+        margin-bottom: 2px;
+    }
+    [class*="status-4"]:before {
+        background-color: #c82829;
+    }
+
+</style>
+
+
+<div class="header" style="background-color:#00bcd4">
+    <div class="container">
+        <h1>Social Login Example Callback</h1>
+    </div>
+</div>
+
+
+<div class="content container">
+
+    <div class="valign-wrapper error hide">
+        <div class="valign center">
+            <div class="mood">
+            <i class="material-icons">sentiment_dissatisfied</i>
+            </div>
+
+            <div>
+                <strong>ERROR:</strong>
+                <p>Missing code parameter</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section ok hide">
+        <div class="var">
+            <p>
+                <span>var </span> <var>code </var> <span> = request.getParameter("code");</span>
+            </p>
+        </div>
+
+        <div class="request hide">
+            <h2 class="light">Request</h2>
+            <code class="code">
+                <span>GET</span> https://rubymage.com/api/v1/users/?code=<var>:code</var>
+            </code>
+        </div>
+
+        <div class="response hide">
+            <h2 class="light">Response</h2>
+            <div class="loading">
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div><div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                    </div>
+                </div>
+                <span>Please wait...</span>
+            </div>
+            <code class="code hide">
+                <span class="http-status">200 OK</span>
+                <br>
+                <span class="content-type">Content-Type: application/json</span>
+                <br>
+                <div class="body"></div>
+            </code>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--scripts-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/docs/v1/bower_components/underscore/underscore-min.js"></script>
+<script src="/docs/v1/bower_components/backbone/backbone-min.js"></script>
+<script src="/docs/v1/my_components/pretty-json/dist/pretty-json.min.js"></script>
+<script src="/docs/v1/my_components/materialize/dist/js/materialize.min.js"></script>
+
+
+<script>
+
+    (function (document, $) {
+
+        var params = parseQueryString(window.location.search.substring(1));
+
+
+        if(!params['code']){
+            document.querySelector('.header').style.backgroundColor = '#f44336';
+            document.querySelector('.error').classList.remove('hide');
+            return;
+        }
+
+        document.querySelector('.ok').classList.remove('hide');
+
+        var elements = document.querySelectorAll('.var p *');
+        elements.forEach(function(el){
+            el.tmpInnerText = el.innerText;
+            el.innerText = '';
+        });
+
+        typeWriter(elements[0], elements[0].tmpInnerText, 50, 0, function(){
+            typeWriter(elements[1], elements[1].tmpInnerText, 50, 0, function(){
+                typeWriter(elements[2], elements[2].tmpInnerText, 50, 0, afterTypeWriter);
+            });
+        });
+
+
+        function afterTypeWriter(){
+
+            setTimeout(function(){
+                document.querySelector('.request').classList.remove('hide');
+
+            }, 500);
+
+            setTimeout(function(){
+
+                var el = document.querySelector('.response').classList.remove('hide');
+
+
+                setTimeout(function(){
+
+                    $.ajax({
+                        method: "GET",
+                        url: "https://rubymage.com/api/v1/users/?code=" + params.code,
+                        complete: function (res) {
+                            console.log(res)
+                            document.querySelector('.response .loading').classList.add('hide');
+
+                            var status = document.querySelector('.response .http-status');
+                            status.className = 'http-status';
+                            status.innerText = res.status + ' ' + res.statusText;
+                            status.classList.add('status-' + res.status);
+
+                            document.querySelector('.response .content-type').innerText = 'Content-Type: '
+                                    + res.getResponseHeader('content-type');
+
+                            var node = new PrettyJSON.view.Node({
+                                el: document.querySelector('.response .body'),
+                                data: JSON.parse(res.responseText)
+                            });
+
+                            document.querySelector('.response .code').classList.remove('hide');
+                        }
+                    });
+                }, 900);
+            }, 900);
+        }
+
+
+        function parseQueryString( queryString ) {
+            return queryString
+                    .split("&")
+                    .map(function(el){ return el.split("=")})
+                    .reduce(function(prev, curr){
+                        prev[curr[0]] = curr[1];
+                        return prev;
+                    }, {});
+        }
+
+        function typeWriter(el, text, delay, n, cb) {
+            if (n < (text.length)) {
+                el.innerText = text.substring(0, n+1);
+                n++;
+                setTimeout(function() {
+                    typeWriter(el, text, delay, n, cb);
+                }, delay);
+            } else {
+                cb();
+            }
+        }
+
+    })(document, jQuery)
+
+</script>
+</body>
+</html>
+

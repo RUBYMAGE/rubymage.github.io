@@ -1,0 +1,169 @@
+/* Social buttons
+   ========================================================================== */
+.social-buttons-rm {
+    /*width: 100%;*/
+    position: relative;
+}
+
+.social-buttons-rm .inner-rm {
+    /*text-align: center;*/
+    /*margin-top: -10px ;*/
+    /*margin-left: -10px ;*/
+}
+
+.social-buttons-rm .outer-rm {
+    overflow: hidden;
+    margin: -1rem;
+    padding: 1rem;
+}
+
+.social-buttons-rm.open-rm .outer-rm {
+    box-sizing: content-box;
+    z-index: 400;
+    position: absolute;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.social-buttons-rm a {
+    box-sizing: content-box;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    /*margin-top: 10px ;*/
+    /*margin-left: 10px ;*/
+    /*background-color: steelblue;*/
+    /*color: #fff;*/
+    /*height: 50px;*/
+    /*width: auto;*/
+    /*border-radius:0;*/
+}
+
+.social-buttons-rm a:hover {
+    text-decoration: none;
+}
+
+.social-buttons-rm a i {
+    display: inline-block;
+    vertical-align: top;
+
+    /*height: 50px;*/
+    /*width: 50px;*/
+}
+
+.social-buttons-rm a span {
+    vertical-align: top;
+    margin: 0 1rem;
+
+    /*line-height: 50px;*/
+    /*font-size: 1.1rem;*/
+}
+
+.social-buttons-rm a i + span {
+    margin: 0 1rem 0 0;
+}
+
+.social-buttons-rm a span + i {
+    margin-left: -1rem;
+}
+
+.social-buttons-rm a svg {
+    width: 40%;
+    height: 40%;
+    margin: 30%;
+}
+
+.social-buttons-rm .skyline-rm ~ * {
+    display: none;
+}
+
+.social-buttons-rm.open-rm .skyline-rm ~ * {
+    display: inline-block;
+}
+
+/*
+ * + More button */
+.social-buttons-rm .more-rm i:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    left: 30%;
+    width: 40%;
+    background-color: #fff;
+}
+
+.social-buttons-rm .more-rm i:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    top: 30%;
+    height: 40%;
+    background-color: #fff;
+}
+
+.social-buttons-rm.open-rm .more-rm i:after {
+    display: none;
+}
+
+/* Button style (icon-only | text-only | icon-text | text-icon)
+   ========================================================================== */
+.social-buttons-rm.icon-only-rm a {
+    /*height: 0;*/
+    /*width: 10%;*/
+    /*padding: 10% 0 0;*/
+}
+
+.social-buttons-rm.icon-only-rm a i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%!important;
+    width: 100%!important;
+}
+
+.social-buttons-rm .or-rm {
+    margin: 25px 0 0;
+    outline: 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.social-buttons-rm .or-rm * {
+    box-sizing: border-box;
+    margin-top: -16px;
+    height: 30px;
+    vertical-align: top;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 0.750rem;
+    color: #555;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Overwrite size and background-color
+   ========================================================================== */
+/*.social-buttons-rm [data-provider="google"] svg {*/
+/*width: 50%;*/
+/*height: 50%;*/
+/*margin: 25%;*/
+/*}*/
+
+/*.social-buttons-rm [data-provider="google"] {*/
+/*background-color: palevioletred;*/
+/*}*/
+/*.social-buttons-rm [data-provider="twitter"] {*/
+/*background-color: lightblue;*/
+/*}*/

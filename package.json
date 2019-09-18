@@ -1,0 +1,18 @@
+{
+  "name": "me",
+  "version": "1.0.0",
+  "description": "Personal page",
+  "author": "Sergiu Ghenciu, RUBYMAGE",
+  "license": "MIT",
+  "repository": "",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./scripts/start.js",
+    "build": "node ./scripts/build.js"
+  },
+  "dependencies": {
+    "csso": "^3.5.1",
+    "node-sass": "^4.12.0"
+  }
+}

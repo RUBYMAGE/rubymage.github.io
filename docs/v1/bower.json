@@ -1,0 +1,29 @@
+{
+  "name": "Documentations",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Sergiu Ghenciu <6180rm@gmail.com> (http://rubymage.com)"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "w/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "angular": "~1.4.8",
+    "backbone": "~1.2.3",
+    "underscore": "~1.8.3",
+    "classlist": "^2014.12.13",
+    "queryselector-polyfill": "*",
+    "PubSub": "pubsub#^1.0.0",
+    "pretty-json": "^2.1.1"
+  }
+}
