@@ -266,9 +266,9 @@ li.s10 {
   .personal-skills.section {
     min-height: 920px; }
   .experience .amalytics {
-    min-height: 870px; }
+    /*min-height: 870px;*/ }
   .experience .casgon {
-    min-height: 500px; }
+    /*min-height: 500px;*/ }
   .experience span[style*="color:"] {
     color: #ddd !important; }
   .education.section {
