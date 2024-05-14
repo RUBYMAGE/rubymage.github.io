@@ -1,0 +1,40 @@
+{
+  "name": "queryselector-polyfill",
+  "description": "QuerySelectorAll polyfill for very old browsers (IE6/IE7).",
+  "main": "index.js",
+  "authors": [
+    "Michael Tsyganov <michael@thematicmedia.de>"
+  ],
+  "dependencies": {},
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "polyfill",
+    "ie6",
+    "ie7",
+    "querySelector",
+    "querySelectorAll",
+    "old",
+    "legacy",
+    "internetexplorer"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/mtsyganov/queryselector-polyfill",
+  "_release": "79319d1159",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "79319d1159e65640e0c626f7e52c035fd9eec5fd"
+  },
+  "_source": "https://github.com/mtsyganov/queryselector-polyfill.git",
+  "_target": "*",
+  "_originalSource": "queryselector-polyfill",
+  "_direct": true
+}

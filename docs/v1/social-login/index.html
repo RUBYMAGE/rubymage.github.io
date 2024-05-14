@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Social Login Service - social login with common social login networks</title>
+  <meta name="description" content="Social login is a free service that allows user login via almost all known social login networks. Social login is very easy and simple to integrate with any app or site.">
+  <meta name="keywords" content="social login, social login free service, free, free service, authentication via social networks, login with social networks, unified api, social login api, identity providers, social networks, integrate with social networks, login with facebook, login with google, login with twitter, login with yahoo">
+  <link href="/docs/v1/styles/social_buttons.css" rel="stylesheet">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+<!-- css -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Quicksand" rel="stylesheet">
+<link href="/docs/v1/my_components/materialize/dist/css/materialize.css" rel="stylesheet">
+<link href="/docs/v1/my_components/pretty-json/dist/pretty-json.css" rel="stylesheet">
+<link href="/docs/v1/styles/modal_rubymage.css" rel="stylesheet">
+<link href="/docs/v1/app.css" rel="stylesheet">
+
+<!-- favicon -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+<style>
+  .side-nav .social-login .collapsible-body li a.active {
+    color: #039BE5
+  }
+
+  .waves-effect .waves-ripple {
+    /*background-color: rgba(3, 155, 229, 0.7);*/
+    background-color: rgba(0, 150, 136, 0.70);
+  }
+
+</style>
+
+<main>
+  <div class="navbar-fixed">
+  <nav style="background-color:#039BE5" class="z-depth-0">
+    <div class="nav-wrapper">
+      <!--<ul class="right hide-on-med-and-down">-->
+      <!--<li><a href="#!">First Sidebar Link</a></li>-->
+      <!--<li><a href="#!">Second Sidebar Link</a></li>-->
+      <!--</ul>-->
+      <a href="#" data-activates="side-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+
+      <div class="header-title hide">
+        <h1>
+          <span class="section-title">Social Login</span>
+          <span class="chapter-title"><span class="title-separator">–</span> What is social login?</span>
+        </h1>
+      </div>
+
+    </div>
+  </nav>
+</div>
+<div class="header" style="background-color:#039BE5">
+  <div class="container">
+    <div class="header-title">
+      <h1>
+        <span class="section-title">Social Login</span>
+        <span class="chapter-title hide"><span class="title-separator">–</span> What is social login?</span>
+      </h1>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col s12 m9 l10">
+        <div id="what-is-social-login" class="section scrollspy">
+          <h1>Social Login Free Service</h1>
+          <script>document.querySelector('#what-is-social-login > h1').style.display = 'none'</script>
+
+          <h1>What is social login?</h1>
+
+            <!--<p class="caption">As one component of RUBYMAGE, Social Login forms a direct connection between your-->
+            <!--website and the APIs of various popular social networks and identity providers.</p>-->
+            <p class="caption">RUBYMAGE SOCIAL LOGIN is a <strong>free service</strong> that allows user authentication via almost all known
+              social networks and identity providers. It is very easy and simple to integrate with any application
+              or website.</p>
+
+            <h2 class="light">Quick Example</h2>
+            <p>Your app must initiate a redirect to RUBYMAGE social-login endpoint which in turn will redirect the user to the chosen provider and will display the login dialog:</p>
+
+            <code class="code">
+              <div id="quick-example-login-url">
+                <div>https://rubymage.com/api/v1/social-login/?</div>
+                <div class="param">provider=<var id="quick-example-provider-var">facebook</var>&</div>
+                <div class="param">redirect_uri=<var>https://rubymage.com/docs/v1/social-login/example-callback/</var></div>
+              </div>
+            </code>
+
+          <form id="quick-example-form">
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <!--<input id="quick-example-provider" type="text" autocomplete="off">-->
+                <select id="quick-example-provider">
+                  <option value="facebook" selected>Facebook</option>
+                  
+                  <option value="google">Google</option>
+                  
+                  <option value="twitter">Twitter</option>
+                  
+                  <option value="yahoo">Yahoo</option>
+                  
+                  <option value="odnoklassniki">Odnoklassniki</option>
+                  
+                  <option value="amazon">Amazon</option>
+                  
+                  <option value="linkedin">Linkedin</option>
+                  
+                  <option value="instagram">Instagram</option>
+                  
+                  <option value="paypal">PayPal</option>
+                  
+                  <option value="tumblr">Tumblr</option>
+                  
+                  <option value="windowslive">Windows Live</option>
+                  
+                  <option value="vkontakte">Vkontakte</option>
+                  
+                  <option value="yandex">Yandex</option>
+                  
+                </select>
+                <label for="quick-example-provider">provider</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <input disabled value="https://rubymage.com/docs/v1/social-login/example-callback/" id="quick-example-redirect_uri" type="text" autocomplete="off">
+                <label for="quick-example-redirect_uri" class="active">redirect_uri</label>
+              </div>
+              <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit">Try It</button>
+              </div>
+            </div>
+          </form>
+
+          <!--<div class="section">-->
+            <!--<h4 class="light">How it works</h4>-->
+            <!--<ul>-->
+              <!--<li>1. A customer clicks on a Social Login button on your website.</li>-->
+              <!--<li>2. An instant authentication request is sent to the social identity provider.</li>-->
+              <!--<li>3. The provider confirms your customer’s ID, giving them access to your site.</li>-->
+              <!--<li>4. Your marketing team receives accurate Profile Data from the social network.</li>-->
+            <!--</ul>-->
+          <!--</div>-->
+
+        </div>
+
+        <div id="why-social-login" class="section scrollspy">
+          <h1>Why social login</h1>
+
+          <!--   Icon Section   -->
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+                <h5 class="center">Your Customers</h5>
+
+                <p class="light">Social Login makes it easy for consumers to register and grant your business access
+                  to the first-party identity data you need to deliver relevance and drive ROI across channels and
+                  campaigns.</p>
+              </div>
+            </div>
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+                <h5 class="center">Speeds up development</h5>
+
+                <p class="light">Get up and running quickly with a simple, unified API that aggregates the different
+                  technologies used by each of the social networks. RUBYMAGE eliminates the need to install
+                  libraries, maintain direct integrations with each social network, or become an expert in
+                  identity protocols such as OpenID and OAuth.</p>
+              </div>
+            </div>
+            <div class="col s12 m4">
+              <div class="icon-block">
+                <h2 class="center light-blue-text"><i class="material-icons">trending_up</i></h2>
+                <h5 class="center">Your Marketing Team</h5>
+
+                <p class="light">Higher registration rates and better understanding of your customers, with access
+                  to highly accurate social data points.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="supported-identity-providers" class="section scrollspy">
+          <h1>Supported identity providers</h1>
+          
+          <style>
+            .social-buttons-rm.i61 {width: 100%;}.social-buttons-rm.i61 .inner-rm {margin-top: -10px;margin-left: -10px;text-align: inherit;}.social-buttons-rm.i61 a {margin-top: 10px;margin-left: 10px;height: 50px;width: auto;border-radius:0px;background-color: #37bfcd;color: #fff;border: 0px solid transparent;}.social-buttons-rm.i61 .more-rm i:before,.social-buttons-rm.i61 .more-rm i:after {background-color: #fff;}.social-buttons-rm.i61 a:hover {background-color: #37bfcd;color: #fff;}.social-buttons-rm.i61 a i {height: 50px;width: 50px;}.social-buttons-rm.i61 a span {line-height: 50px;font-size: 1.1rem;}
+
+            .social-buttons-rm.i61 a {
+              cursor: auto;
+              width: calc(33% - 10px);
+              /*max-width: 170px;*/
+            }
+            @media screen and (max-width: 1160px) {
+              .social-buttons-rm.i61 a {width: calc(50% - 10px);}
+            }
+            @media screen and (max-width: 992px) {
+              .social-buttons-rm.i61 a {width: calc(33% - 10px);}
+            }
+            @media screen and (max-width: 830px) {
+              .social-buttons-rm.i61 a {width: calc(50% - 10px);}
+            }
+          </style>
+          <div class="social-buttons-rm i61 icon-text-rm visible-99"><div class="outer-rm"><div class="inner-rm"><a data-provider="facebook" title="Facebook" style="background-color:#3B5998;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="95 128 864 1664"><path transform="translate(0, 1664) scale(1,-1)" d="M959 1524v-264h-157q-86 0 -116 -36t-30 -108v-189h293l-39 -296h-254v-759h-306v759h-255v296h255v218q0 186 104 288.5t277 102.5q147 0 228 -12z"></path></svg></i><span>Facebook</span></a><a data-provider="google" title="Google" style="background-color:#DD4B39;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 128 1505 1536"><path transform="translate(0, 1536) scale(1,-1)" d="M768 750h725q12 -67 12 -128q0 -217 -91 -387.5t-259.5 -266.5t-386.5 -96q-157 0 -299 60.5t-245 163.5t-163.5 245t-60.5 299t60.5 299t163.5 245t245 163.5t299 60.5q300 0 515 -201l-209 -201q-123 119 -306 119q-129 0 -238.5 -65t-173.5 -176.5t-64 -243.5 t64 -243.5t173.5 -176.5t238.5 -65q87 0 160 24t120 60t82 82t51.5 87t22.5 78h-436v264z"></path></svg></i><span>Google</span></a><a data-provider="twitter" title="Twitter" style="background-color:#56A3D9;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="43 0 1576 1280"><path transform="translate(0, 1280) scale(1,-1)" d="M1620 1128q-67 -98 -162 -167q1 -14 1 -42q0 -130 -38 -259.5t-115.5 -248.5t-184.5 -210.5t-258 -146t-323 -54.5q-271 0 -496 145q35 -4 78 -4q225 0 401 138q-105 2 -188 64.5t-114 159.5q33 -5 61 -5q43 0 85 11q-112 23 -185.5 111.5t-73.5 205.5v4q68 -38 146 -41 q-66 44 -105 115t-39 154q0 88 44 163q121 -149 294.5 -238.5t371.5 -99.5q-8 38 -8 74q0 134 94.5 228.5t228.5 94.5q140 0 236 -102q109 21 205 78q-37 -115 -142 -178q93 10 186 50z"></path></svg></i><span>Twitter</span></a><a data-provider="yahoo" title="Yahoo" style="background-color:#845AA5;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="109 128 1318 1664"><path transform="translate(0, 1664) scale(1,-1)" d="M859 579l13 -707q-62 11 -105 11q-41 0 -105 -11l13 707q-40 69 -168.5 295.5t-216.5 374.5t-181 287q58 -15 108 -15q43 0 111 15q63 -111 133.5 -229.5t167 -276.5t138.5 -227q37 61 109.5 177.5t117.5 190t105 176t107 189.5q54 -14 107 -14q56 0 114 14v0 q-28 -39 -60 -88.5t-49.5 -78.5t-56.5 -96t-49 -84q-146 -248 -353 -610z"></path></svg></i><span>Yahoo</span></a><a data-provider="odnoklassniki" title="Odnoklassniki" style="background-color:#F48120;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="101 256 1078.67 1792"><path transform="translate(0, 1792) scale(1,-1)" d="M640 629q-188 0 -321 133t-133 320q0 188 133 321t321 133t321 -133t133 -321q0 -187 -133 -320t-321 -133zM640 1306q-92 0 -157.5 -65.5t-65.5 -158.5q0 -92 65.5 -157.5t157.5 -65.5t157.5 65.5t65.5 157.5q0 93 -65.5 158.5t-157.5 65.5zM1163 574q13 -27 15 -49.5 t-4.5 -40.5t-26.5 -38.5t-42.5 -37t-61.5 -41.5q-115 -73 -315 -94l73 -72l267 -267q30 -31 30 -74t-30 -73l-12 -13q-31 -30 -74 -30t-74 30q-67 68 -267 268l-267 -268q-31 -30 -74 -30t-73 30l-12 13q-31 30 -31 73t31 74l267 267l72 72q-203 21 -317 94 q-39 25 -61.5 41.5t-42.5 37t-26.5 38.5t-4.5 40.5t15 49.5q10 20 28 35t42 22t56 -2t65 -35q5 -4 15 -11t43 -24.5t69 -30.5t92 -24t113 -11q91 0 174 25.5t120 50.5l38 25q33 26 65 35t56 2t42 -22t28 -35z"></path></svg></i><span>Odnoklassniki</span></a><a data-provider="amazon" title="Amazon" style="background-color:#555555;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="28 256 1738.5 1792"><path transform="translate(0, 1792) scale(1,-1)" d="M1551 60q15 6 26 3t11 -17.5t-15 -33.5q-13 -16 -44 -43.5t-95.5 -68t-141 -74t-188 -58t-229.5 -24.5q-119 0 -238 31t-209 76.5t-172.5 104t-132.5 105t-84 87.5q-8 9 -10 16.5t1 12t8 7t11.5 2t11.5 -4.5q192 -117 300 -166q389 -176 799 -90q190 40 391 135z M1758 175q11 -16 2.5 -69.5t-28.5 -102.5q-34 -83 -85 -124q-17 -14 -26 -9t0 24q21 45 44.5 121.5t6.5 98.5q-5 7 -15.5 11.5t-27 6t-29.5 2.5t-35 0t-31.5 -2t-31 -3t-22.5 -2q-6 -1 -13 -1.5t-11 -1t-8.5 -1t-7 -0.5h-5.5h-4.5t-3 0.5t-2 1.5l-1.5 3q-6 16 47 40t103 30 q46 7 108 1t76 -24zM1364 618q0 -31 13.5 -64t32 -58t37.5 -46t33 -32l13 -11l-227 -224q-40 37 -79 75.5t-58 58.5l-19 20q-11 11 -25 33q-38 -59 -97.5 -102.5t-127.5 -63.5t-140 -23t-137.5 21t-117.5 65.5t-83 113t-31 162.5q0 84 28 154t72 116.5t106.5 83t122.5 57 t130 34.5t119.5 18.5t99.5 6.5v127q0 65 -21 97q-34 53 -121 53q-6 0 -16.5 -1t-40.5 -12t-56 -29.5t-56 -59.5t-48 -96l-294 27q0 60 22 119t67 113t108 95t151.5 65.5t190.5 24.5q100 0 181 -25t129.5 -61.5t81 -83t45 -86t12.5 -73.5v-589zM692 597q0 -86 70 -133 q66 -44 139 -22q84 25 114 123q14 45 14 101v162q-59 -2 -111 -12t-106.5 -33.5t-87 -71t-32.5 -114.5z"></path></svg></i><span>Amazon</span></a><a data-provider="linkedin" title="Linkedin" style="background-color:#0077b5;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 81 1536 1468"><path transform="translate(0, 1468) scale(1,-1)" d="M349 911v-991h-330v991h330zM370 1217q1 -73 -50.5 -122t-135.5 -49h-2q-82 0 -132 49t-50 122q0 74 51.5 122.5t134.5 48.5t133 -48.5t51 -122.5zM1536 488v-568h-329v530q0 105 -40.5 164.5t-126.5 59.5q-63 0 -105.5 -34.5t-63.5 -85.5q-11 -30 -11 -81v-553h-329 q2 399 2 647t-1 296l-1 48h329v-144h-2q20 32 41 56t56.5 52t87 43.5t114.5 15.5q171 0 275 -113.5t104 -332.5z"></path></svg></i><span>Linkedin</span></a><a data-provider="instagram" title="Instagram" style="background-color:#9b6954;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 128 1536 1536"><path transform="translate(0, 1536) scale(1,-1)" d="M1362 110v648h-135q20 -63 20 -131q0 -126 -64 -232.5t-174 -168.5t-240 -62q-197 0 -337 135.5t-140 327.5q0 68 20 131h-141v-648q0 -26 17.5 -43.5t43.5 -17.5h1069q25 0 43 17.5t18 43.5zM1078 643q0 124 -90.5 211.5t-218.5 87.5q-127 0 -217.5 -87.5t-90.5 -211.5 t90.5 -211.5t217.5 -87.5q128 0 218.5 87.5t90.5 211.5zM1362 1003v165q0 28 -20 48.5t-49 20.5h-174q-29 0 -49 -20.5t-20 -48.5v-165q0 -29 20 -49t49 -20h174q29 0 49 20t20 49zM1536 1211v-1142q0 -81 -58 -139t-139 -58h-1142q-81 0 -139 58t-58 139v1142q0 81 58 139 t139 58h1142q81 0 139 -58t58 -139z"></path></svg></i><span>Instagram</span></a><a data-provider="paypal" title="PayPal" style="background-color:#009cde;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="6 256 1524 1792"><path transform="translate(0, 1792) scale(1,-1)" d="M1519 890q18 -84 -4 -204q-87 -444 -565 -444h-44q-25 0 -44 -16.5t-24 -42.5l-4 -19l-55 -346l-2 -15q-5 -26 -24.5 -42.5t-44.5 -16.5h-251q-21 0 -33 15t-9 36q9 56 26.5 168t26.5 168t27 167.5t27 167.5q5 37 43 37h131q133 -2 236 21q175 39 287 144q102 95 155 246 q24 70 35 133q1 6 2.5 7.5t3.5 1t6 -3.5q79 -59 98 -162zM1347 1172q0 -107 -46 -236q-80 -233 -302 -315q-113 -40 -252 -42q0 -1 -90 -1l-90 1q-100 0 -118 -96q-2 -8 -85 -530q-1 -10 -12 -10h-295q-22 0 -36.5 16.5t-11.5 38.5l232 1471q5 29 27.5 48t51.5 19h598 q34 0 97.5 -13t111.5 -32q107 -41 163.5 -123t56.5 -196z"></path></svg></i><span>PayPal</span></a><a data-provider="tumblr" title="Tumblr" style="background-color:#35465c;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-68 130 956 1665.33"><path transform="translate(0, 1665.33) scale(1,-1)" d="M944 207l80 -237q-23 -35 -111 -66t-177 -32q-104 -2 -190.5 26t-142.5 74t-95 106t-55.5 120t-16.5 118v544h-168v215q72 26 129 69.5t91 90t58 102t34 99t15 88.5q1 5 4.5 8.5t7.5 3.5h244v-424h333v-252h-334v-518q0 -30 6.5 -56t22.5 -52.5t49.5 -41.5t81.5 -14 q78 2 134 29z"></path></svg></i><span>Tumblr</span></a><a data-provider="windowslive" title="Windows Live" style="background-color:#68217a;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 258 1664 1664"><path transform="translate(0, 1664) scale(1,-1)" d="M682 530v-651l-682 94v557h682zM682 1273v-659h-682v565zM1664 530v-786l-907 125v661h907zM1664 1408v-794h-907v669z"></path></svg></i><span>Windows Live</span></a><a data-provider="vkontakte" title="Vkontakte" style="background-color:#45668e;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1096"><path transform="translate(0, 1096) scale(1,-1)" d="M1917 1016q23 -64 -150 -294q-24 -32 -65 -85q-78 -100 -90 -131q-17 -41 14 -81q17 -21 81 -82h1l1 -1l1 -1l2 -2q141 -131 191 -221q3 -5 6.5 -12.5t7 -26.5t-0.5 -34t-25 -27.5t-59 -12.5l-256 -4q-24 -5 -56 5t-52 22l-20 12q-30 21 -70 64t-68.5 77.5t-61 58 t-56.5 15.5q-3 -1 -8 -3.5t-17 -14.5t-21.5 -29.5t-17 -52t-6.5 -77.5q0 -15 -3.5 -27.5t-7.5 -18.5l-4 -5q-18 -19 -53 -22h-115q-71 -4 -146 16.5t-131.5 53t-103 66t-70.5 57.5l-25 24q-10 10 -27.5 30t-71.5 91t-106 151t-122.5 211t-130.5 272q-6 16 -6 27t3 16l4 6 q15 19 57 19l274 2q12 -2 23 -6.5t16 -8.5l5 -3q16 -11 24 -32q20 -50 46 -103.5t41 -81.5l16 -29q29 -60 56 -104t48.5 -68.5t41.5 -38.5t34 -14t27 5q2 1 5 5t12 22t13.5 47t9.5 81t0 125q-2 40 -9 73t-14 46l-6 12q-25 34 -85 43q-13 2 5 24q17 19 38 30q53 26 239 24 q82 -1 135 -13q20 -5 33.5 -13.5t20.5 -24t10.5 -32t3.5 -45.5t-1 -55t-2.5 -70.5t-1.5 -82.5q0 -11 -1 -42t-0.5 -48t3.5 -40.5t11.5 -39t22.5 -24.5q8 -2 17 -4t26 11t38 34.5t52 67t68 107.5q60 104 107 225q4 10 10 17.5t11 10.5l4 3l5 2.5t13 3t20 0.5l288 2 q39 5 64 -2.5t31 -16.5z"></path></svg></i><span>Vkontakte</span></a><a data-provider="yandex" title="Yandex" style="background-color:#e61400;"><i><svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="116 0 280 512"><path transform="translate(0, 512) scale(1,-1)" d="M390 512l-43 0c-4 0-6-2-7-5 0-2-65-199-69-215-4-12-15-53-17-63l-23 62c-5 17-57 162-59 168-1 3-2 7-8 7l-42 0c-4 0-6-4-5-7 1-2 77-206 108-283l0-171c0-3 2-5 5-5l40 0c2 0 4 2 4 5l0 169c26 72 120 328 121 331 1 3 1 7-5 7z"></path></svg></i><span>Yandex</span></a></div></div></div>
+          <p>More coming soon ...</p>
+        </div>
+
+        <div id="logical-flow" class="section scrollspy">
+          <h1>Logical flow</h1>
+
+          <!--<p class="caption">In this section, you will familiarize yourself with RUBYMAGE social login APIs,
+            including how to set your account up, how to use the most common Social APIs and all the advanced APIs
+            you might need to use in the future.</p>-->
+
+          <p>The below chart goes over the logical flow of the SOCIAL LOGIN service and the process for retrieving data
+            from the Social Providers.</p>
+
+          <div class="center social-sequence">
+            <img style="max-width:100%;" src="/docs/v1/images/social-sequence.png" alt="social sequence">
+          </div>
+
+          <p>1. Display the Social Login interface on your page.</p>
+
+          <p>2. Once a user has selected the Social Provider they would like to use they will be prompted to input
+            their credentials in an authentication interface that is managed by the Social Providers. Permission
+            to access their data will also happen at this time.</p>
+
+          <p>3. After successful authentication the interface will return a specific access token to your Server.</p>
+
+          <p>4. Request User Profile data or extended data like Groups and Contacts via the RUBYMAGE Social APIs.
+            If the user has granted permissions you can also message friends or do Push Notifications.</p>
+
+          <p>5. All of the API endpoints return normalized responses in JSON format.</p>
+
+        </div>
+
+        <div id="api" class="section scrollspy">
+          <h1>API details</h1>
+
+          <h2 class="light">Definition</h2>
+          <p>Your app must initiate a redirect to RUBYMAGE social-login endpoint which in turn will redirect the user to the chosen provider and will display the login dialog:</p>
+          <code class="code">
+            <span class="endpoint">https://rubymage.com/api/v1/social-login/</span>?<br>
+            <span class="param">provider=<var>:provider</var>&</span><br>
+            <span class="param">redirect_uri=<var>https://yourdomain.com/callback</var></span>
+          </code>
+          <br>
+
+          <h2 class="light">Parameters</h2>
+          <table class="responsive-table vertical-align-top">
+            <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Values</th>
+              <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>provider</td>
+              <td>Identity Provider</td>
+              <td><em class="required">Required.</em> <span class="available-identity-providers">Available values: facebook, google, yahoo, twitter, odnoklassniki, amazon, instagram, linkedin, vkontakte, windowslive, paypal, tumblr, yandex, mailru</span>
+              </td>
+            </tr>
+            <!--<tr>-->
+            <!--<td>access_token</td>-->
+            <!--<td>The Access_token you have obtained first of all</td>-->
+            <!--<td><em class="required">Required.</em> Follow this link to find out more specific details <a-->
+            <!--href="#accessToken">Get Access Token</a></td>-->
+            <!--</tr>-->
+            <tr>
+              <td>redirect_uri</td>
+              <td>One of the redirect_uri values listed for this app in the RUBYMAGE Account. <b>It must be URL
+                  encoded</b></td>
+              <td><em class="required">Required.</em> Determines where the response is sent. The value of this parameter
+                must exactly match one of the values listed for this app in the RUBYMAGE Account (including the http or
+                https scheme, case, and trailing '/').
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <br>
+
+          <h2 class="light">Response</h2>
+          <p>The callback request will contain code parameter.</p>
+          <div class="code">
+            https://yoursite.com/callback/?code=:<var>code</var>
+          </div>
+          <br>
+
+          <h2 class="light">Try It Out</h2>
+          <form class="try-social-login">
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <!--<input id="try-social-login-provider" type="text" autocomplete="off">-->
+                <select name="provider">
+                  <option value="" disabled selected>Choose provider</option>
+                  
+                  <option value="facebook">Facebook</option>
+                  
+                  <option value="google">Google</option>
+                  
+                  <option value="twitter">Twitter</option>
+                  
+                  <option value="yahoo">Yahoo</option>
+                  
+                  <option value="odnoklassniki">Odnoklassniki</option>
+                  
+                  <option value="amazon">Amazon</option>
+                  
+                  <option value="linkedin">Linkedin</option>
+                  
+                  <option value="instagram">Instagram</option>
+                  
+                  <option value="paypal">PayPal</option>
+                  
+                  <option value="tumblr">Tumblr</option>
+                  
+                  <option value="windowslive">Windows Live</option>
+                  
+                  <option value="vkontakte">Vkontakte</option>
+                  
+                  <option value="yandex">Yandex</option>
+                  
+                </select>
+                <label>provider</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <input name="redirect_uri" type="text" autocomplete="off">
+                <label>redirect_uri</label>
+              </div>
+              <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit">Try It</button>
+              </div>
+            </div>
+          </form>
+          <br>
+
+        </div>
+
+        <div id="get-user-profile" class="section scrollspy">
+          <h1>Get user profile</h1>
+
+          <h2 class="light">Definition</h2>
+          <p>In context of Social Login you can get user profile data by making a request to user's endpoint with the code parameter you received on the previous step.</p>
+          <code class="code">
+            <span class="method">GET</span>&nbsp;<span class="endpoint">https://rubymage.com/api/v1/users/</span>?code=<var>:code</var>
+          </code>
+          <br>
+
+          <h2 class="light">Response</h2>
+          <code class="code">
+            <span class="httpStatus status-200">200 OK</span>
+            <br>
+            <span>Content-Type: application/json</span>
+            <br>
+            <div class="body pretty-json" data-expand-all="true">
+              {
+                "id" :  "3273102058988270",
+                "displayName" :  "Sergiu Ghenciu",
+                "name" : {
+                  "familyName" :  "Ghenciu",
+                  "givenName" :  "Sergiu",
+                  "middleName" :  null
+                },
+                "gender" :  "male",
+                "emails" : [
+                  {
+                    "value" :  "1024gs@gmail.com"
+                  }
+                ],
+                "provider" :  "facebook"
+              }
+            </div>
+          </code>
+          <br>
+
+          <h2 class="light">Try It Out</h2>
+          <form class="try-get-user-profile">
+            <div class="row">
+              <div class="input-field col s12">
+                <input name="code" type="text" autocomplete="off">
+                <label>code</label>
+              </div>
+              <div class="col s12">
+                <button class="btn waves-effect waves-light" type="submit">Try It</button>
+              </div>
+            </div>
+          </form>
+          <br>
+        </div>
+
+        <div class="section tags">
+          <h5>Tags</h5>
+          <p>#amazon #amazon connect #amazone login #amazon social login #login with amazone #facebook #facebook connect #facebook login #facebook social login #login with facebook #google #google connect #google login #google plus #google social login #login with google #odnoklassniki #odnoklassniki connect #odnoklassniki login #odnoklasniki login #odnoklassniki social login #login with odnoklassniki #ok #ok login #ok social login #twitter #twitter connect #twitter login #twitter social login #login with twitter #yahoo #yahoo login #yahoo connect #yahoo social login #login with yahoo Linkedin #Linkedin connect #Linkedin login #Linkedin social login #login with Linkedin #login via Linkedin #Instagram #Instagram connect #Instagram login #Instagram social login #login with Instagram #login via Instagram #PayPal #PayPal connect #PayPal login #PayPal social login #login with PayPal #login via PayPal #Tumblr #Tumblr connect #Tumblr login #Tumblr social login #login with Tumblr #login via Tumblr #Windows #microsoft #Windows Live connect #Windows live login #Windows social login login with Windows live login via Windows live #Vkontakte #Vkontakte connect #Vkontakte login #Vkontakte social login #login with Vkontakte #login via Vkontakte #Авторизация через ВКонтакте #Аутентификация через ВКонтакте #Yandex #yandex connect #yandex login #yandex social login #login with yandex #login via yandex #Аутентификация через Яндекс #Авторизация через Яндекс #social login #auto user registration #auto-login #autologin #captcha #capture social data #login #login radius #login with amazon #login with facebook #login with google #login with openid connect #login with twitter #loginradius #multisite #oauth #floating buttons #online identity #openid #openid connect #openid connect sso #openid integration #single sign-on #social api #social app #social authentication #social connect #social network login #unified api #unified login api #unified social login #social provider #social sign-in #user auto register #user profile data</p>
+        </div>
+
+      </div>
+
+      <div class="col hide-on-small-only m3 l2">
+        <style>
+          .table-of-contents a:hover,
+          .table-of-contents a.active {
+            border-left-color: #039BE5;
+          }
+        </style>
+        <div class="section table-of-contents">
+          <h1>Contents</h1>
+          <ul>
+            <li><a href="#what-is-social-login">What is social login?</a></li>
+            <li><a href="#why-social-login">Why social login</a></li>
+            <li><a href="#supported-identity-providers">Supported identity providers</a></li>
+            <li><a href="#logical-flow" class="">Logical flow</a></li>
+            <li><a href="#api" class="">API details</a></li>
+            <li><a href="#get-user-profile" class="">Get user profile</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<div id="side-nav" class="side-nav fixed">
+    <div id="logo"><h1><a href="#">RUBYMAGE</a></h1></div>
+
+    <ul class="nav">
+        <!--<li><a href="#!">First Sidebar Link</a></li>-->
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="social-login">
+                    <a class="collapsible-header">Social Login</a>
+
+                    <div class="collapsible-body">
+                        <ul>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#what-is-social-login">What is social login?</a></li>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#why-social-login">Why social login</a></li>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#supported-identity-providers">Supported identity providers</a></li>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#logical-flow">Logical flow</a></li>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#api">API details</a></li>
+                            <li><a class="waves-effect" href="/docs/v1/social-login/#get-user-profile">Get user profile</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+
+    <div class="legal">
+        <p class="copyright">RUBYMAGE ©</p>
+    </div>
+</div>
+<div class="try-modal">
+    <h1>Get user</h1>
+
+    <div class="var hide">
+        <p>
+            <span>var </span> <var>code </var> <span> = request.getParameter("code");</span>
+        </p>
+    </div>
+
+    <div class="request">
+        <h2 class="light">Request</h2>
+        <code class="code">
+            <span>GET</span> https://rubymage.com/api/v1/users/?code=<var>:code</var>
+        </code>
+    </div>
+
+    <div class="response">
+        <h2 class="light">Response</h2>
+        <div class="loading">
+            <div class="preloader-wrapper small active">
+                <div class="spinner-layer">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <span>Please wait...</span>
+        </div>
+
+        <code class="code">
+            <span class="http-status">200 OK</span>
+            <br>
+            <span class="content-type">Content-Type: application/json</span>
+            <br>
+            <span class="body"></span>
+        </code>
+    </div>
+
+</div>
+
+
+<!--scripts-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!--<script src="/docs/v1/bower_components/jquery/dist/jquery.min.js"></script>-->
+<script src="/docs/v1/bower_components/underscore/underscore-min.js"></script>
+<script src="/docs/v1/bower_components/backbone/backbone-min.js"></script>
+<script src="/docs/v1/my_components/pretty-json/dist/pretty-json.min.js"></script>
+<script src="/docs/v1/my_components/materialize/dist/js/materialize.min.js"></script>
+<script src="/docs/v1/scripts/object-assign-polyfill.js"></script>
+<script src="/docs/v1/scripts/closest-polyfill.js"></script>
+<script src="/docs/v1/bower_components/classlist/classList.min.js"></script>
+<script src="/docs/v1/bower_components/queryselector-polyfill/index.js"></script>
+<script src="/docs/v1/bower_components/PubSub/pubsub.min.js"></script>
+<script src="/docs/v1/scripts/scroll-spy.js"></script>
+<script src="/docs/v1/scripts/material-header.js"></script>
+<script src="/docs/v1/scripts/table-of-contents.js"></script>
+<script src="/docs/v1/scripts/pretty-json.js"></script>
+<script src="/docs/v1/scripts/modal_rubymage.js"></script>
+
+
+<script>
+
+  (function(document, $, pubsub){
+
+
+    // Initialize collapse button
+    $(".button-collapse").sideNav({});
+
+
+    $('select').material_select(
+//        function(){pubsub.publish('materialSelectChange');}
+    );
+
+
+    var section = window.location.pathname.match(/docs\/v1\/(.+?)(?:\/|$)/);
+//  console.log('.side-nav .' + section[1])
+//  if(section[1])
+    var el = document.querySelector('.side-nav .' + section[1]);
+    el.classList.add('active');
+    el.querySelector('.collapsible-header').classList.add('active');
+    el.querySelector('.collapsible-body').style.display = 'block';
+
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+
+  })(document, jQuery, window.PubSub)
+
+</script>
+
+<script>
+
+  (function (document, $, ModalRubymage) {
+
+    // cache DOM
+    var quickExampleProvider = document.querySelector('#quick-example-provider');
+    var tryModalEl = document.querySelector('.try-modal');
+    var tryModal = ModalRubymage({el: tryModalEl, bindEvents: true});
+
+    // init
+    init();
+
+    function init(){
+      bindEvents();
+    }
+
+    function bindEvents(){
+      $(quickExampleProvider).on('change', function(){
+        document.querySelector('#quick-example-provider-var').innerText = this.value;
+      });
+
+      document.querySelector('#quick-example-form').addEventListener('submit', quickExample);
+      document.querySelector('.try-social-login').addEventListener('submit', trySocialLogin);
+      document.querySelector('.try-get-user-profile').addEventListener('submit', tryGetUserProfile);
+      document.querySelector('.try-get-user-profile [name=code]').addEventListener('blur', function(){
+        if(this.value) {
+          this.classList.remove('invalid');
+        }
+      });
+    }
+
+    function trySocialLogin(event){
+      event.preventDefault();
+
+      var provider = this.querySelector('[name=provider]');
+      var redirect_uri = this.querySelector('[name=redirect_uri]');
+      var section = this.closest('.section');
+
+      if(!provider.value) {
+        provider.classList.add('invalid');
+        return;
+      } else {
+        provider.classList.remove('invalid')
+      }
+      if(!redirect_uri.value) {
+        redirect_uri.classList.add('invalid');
+        $(redirect_uri).focus();
+        return;
+      } else {
+        redirect_uri.classList.remove('invalid')
+      }
+
+      var url = section.querySelector('.endpoint').innerText + '?' +
+          'provider=' + provider.value + '&' +
+          'redirect_uri=' + redirect_uri.value;
+
+      authenticate(url, provider.value);
+    }
+
+    function tryGetUserProfile(event){
+      event.preventDefault();
+
+      var code = this.querySelector('[name=code]');
+
+      if(!code.value) {
+        code.classList.add('invalid');
+        code.focus();
+        return;
+      }
+
+      tryModal.open();
+      var section = this.closest('.section');
+
+      tryIt({
+        title: section.querySelector('h1').innerText,
+        method: section.querySelector('.method').innerText,
+        url: section.querySelector('.endpoint').innerText,
+//        url: 'http://localhost:3000/api/v1/users',
+        data: $(this).serializeArray(),
+        el: tryModalEl
+      });
+    }
+
+    function tryIt(options) {
+
+      options.el.querySelector('h1').innerText = options.title;
+
+      var varContainer = options.el.querySelector('.var'),
+          request = options.el.querySelector('.request'),
+          response = options.el.querySelector('.response');
+      varContainer.classList.add('hide');
+      request.classList.add('hide');
+      response.classList.add('hide');
+
+      options.url = window.location.protocol + options.url.replace(/https?\:/i, '');
+
+      /* request */
+      setTimeout(function () {
+        var reqHtml = '<span>'+options.method+'</span>' +' ' + options.url;
+
+        if(options.data){
+          reqHtml += '?';
+
+          Object.keys(options.data).forEach(function(key){
+            reqHtml += '<br><span class="param">'+options.data[key].name+'=<var>'+options.data[key].value+'</var>';
+            if(options.data[key+1]) { reqHtml += '&'}
+            reqHtml += '</span>';
+          })
+        }
+
+
+        request.querySelector('.code').innerHTML = reqHtml;
+        request.classList.remove('hide');
+      }, 1000);
+
+      /* response */
+      setTimeout(function () {
+
+        response.querySelector('.loading').classList.remove('hide');
+        response.querySelector('.code').classList.add('hide');
+        response.classList.remove('hide');
+
+
+        setTimeout(function () {
+
+          $.ajax({
+            method: options.method,
+            url: options.url,
+            data: options.data,
+            complete: function (res) {
+              console.log(res);
+              response.querySelector('.loading').classList.add('hide');
+
+              var status = response.querySelector('.http-status');
+              status.className = 'http-status';
+              status.innerText = res.status + ' ' + res.statusText;
+              status.classList.add('status-' + res.status);
+
+              response.querySelector('.content-type').innerText = 'Content-Type: '
+                      + res.getResponseHeader('content-type');
+//              response.querySelector('.content-type').innerText = res.getAllResponseHeaders();
+
+              var node = new PrettyJSON.view.Node({
+                el: response.querySelector('.body'),
+                data: JSON.parse(res.responseText)
+              });
+
+              response.querySelector('.code').classList.remove('hide');
+            }
+          });
+        }, 900);
+      }, 1400);
+
+    }
+
+    function authenticate(url, provider) {
+
+
+      // centering popup
+      var c = {
+        // "Th": 730, "Tw": 716,
+        twitter: {h: 370, w: 716},
+        yahoo: {h: 528, w: 614},
+        //"Oh": 370, "Ow": 730,
+        odnoklassniki: {h: 310, w: 590},
+        facebook: {h: 340, w: 575},
+        google: {h: 650, w: 500},
+        amazon: {h: 600, w: 720},
+        //linkedin: {h: 585, w: 441},
+        linkedin: {h: 400, w: 441},
+      };
+      var height = c[provider] ? c[provider].h : 520;
+      var width = c[provider] ? c[provider].w : 716;
+      var top = window.outerHeight / 2 - (height / 2);
+      var left = window.outerWidth / 2 - (width / 2);
+
+      if (top > 160) top = 160;
+
+      height = window.outerHeight;
+      top = 0;
+
+      /*
+      * POPUP MANIPULATION
+      * */
+      var popup = window.open('', '_blank', 'top=' + top + ',left=' + left + ',height=' + height + ',width=' + width);
+      popup.document.title = 'Example Social Login';
+      /* copy styles */
+      popup.document.head.innerHTML = '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">';
+      var mi = document.createElement('link');
+      mi.rel = "stylesheet";
+      mi.href = 'https://fonts.googleapis.com/icon?family=Material+Icons';
+      popup.document.head.appendChild(mi);
+
+      Array.prototype.slice.call(document.head.children).forEach(function(link){
+        if(/\/favicon/.test(link.href)){
+          popup.document.head.appendChild(link);
+        }
+      })
+
+      copyStyleSheetsTo(popup, [getStyleSheetByHref(/\/materialize\.css$/), getStyleSheetByHref(/\/app\.css$/)]);
+
+      var customStyles = document.createElement('style');
+      customStyles.appendChild(document.createTextNode(
+          'h2 {font-size: 1.64rem; margin-top: 2rem;}' +
+          '.status {margin:15px 0}' +
+//          '.status { color:#888; font-weight: 500;}' +
+          '.status .btn-flat i {margin-right: 5px; font-size:1.5rem}' +
+          '.status .preloader-wrapper {vertical-align:top; margin-right:7px; width:26px;height:26px;}' +
+          '.status .redirecting {line-height:27px; height:26px; display:inline-block; vertical-align:top;}' +
+          'button.continue i {font-size:2rem}' ));
+      popup.document.body.appendChild(customStyles);
+
+      setTimeout(function(){
+
+        var div = document.createElement('div');
+        div.innerHTML = '<h2 class="light">Redirecting to <span>...</span></h2>';
+
+        popup.document.body.appendChild( div );
+
+
+        var code = document.createElement('code');
+        code.className = 'code';
+
+        code.innerHTML = '<div>https://rubymage.com/api/v1/social-login/?</div>' +
+            '<div class="param">provider=<var>'+provider+'</var>&</div>' +
+            '<div class="param">redirect_uri=<var>'+ url.substring(url.indexOf('redirect_uri')+13) +'</var></div>';
+
+        div.appendChild( code );
+
+
+        var center = document.createElement('div');
+        center.className = 'center';
+
+        center.innerHTML = '<div class="status"><a class="btn-flat disabled"><i class="material-icons left">pause</i>PAUSED</a></div>' +
+            '<button class="btn continue waves-effect waves-light" type="submit" name="action"><i class="material-icons left">play_arrow</i>Continue</button>';
+
+        div.appendChild(center);
+        dots(div.querySelector('h2 > span'), 200);
+
+        var status = div.querySelector('.status');
+        for (var i = 0; i < 99; i++) {
+          $(status).fadeTo('slow', 0).fadeTo('slow', 1);
+        }
+
+        div.querySelector('button.continue').addEventListener('click',function(){
+
+          var newStatus = document.createElement('div');
+          newStatus.className = 'status';
+          newStatus.style.padding = '5px 0';
+          newStatus.innerHTML = '<div class="preloader-wrapper small active"><div class="spinner-layer"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>' +
+              '<span class="redirecting">Please wait...</span>';
+
+          status.parentNode.insertBefore(newStatus, status);
+          status.remove();
+
+          this.setAttribute("disabled","disabled");
+
+          popup.window.location = url;
+        })
+//        typeWriter(div.querySelector('h1 > span'), '...', 50, 0)
+
+      }, 0)
+
+
+
+    }
+
+    function dots (el, delay) {
+      setInterval(function () {
+        if (el.innerHTML.length > 2)
+          el.innerHTML = "";
+        else
+          el.innerHTML += ".";
+      }, delay);
+    }
+
+    function typeWriter(el, text, delay, n) {
+      if (n < (text.length)) {
+        el.innerText = text.substring(0, n+1)
+        n++;
+        setTimeout(function() {
+          typeWriter(el, text, delay, n)
+        }, delay);
+      }
+    }
+
+    function quickExample(event){
+      event.preventDefault();
+      var url = document.querySelector('#quick-example-login-url').innerText;
+
+      authenticate(url, quickExampleProvider.value);
+      return false;
+    }
+
+    function getStyleSheetByHref(regex) {
+
+      for (var i = 0; i < document.styleSheets.length; i++) {
+
+        if (!regex.test(document.styleSheets[i].href))
+          continue;
+
+        return document.styleSheets[i];
+      }
+      return null;
+    }
+
+    function styleSheetToString(sheet) {
+      var str = "";
+      for (var i = 0; i < sheet.cssRules.length; i++) {
+        str += sheet.cssRules[i].cssText;
+      }
+      return str;
+    }
+
+    function copyStyleSheetsTo(to, sheets){
+
+      var customStyles = document.createElement('style');
+      var textNode = '';
+
+      sheets.forEach(function(sheet){
+        if(sheet !== null) {
+          textNode += styleSheetToString(sheet)
+        }
+      });
+
+      customStyles.appendChild(document.createTextNode( textNode ));
+      to.document.body.appendChild(customStyles);
+
+    }
+
+  })(document, jQuery, ModalRubymage)
+</script>
+</body>
+</html>
+
