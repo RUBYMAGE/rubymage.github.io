@@ -7,7 +7,7 @@ const crypto = require('crypto');
 const {appRoot} = require('./config');
 
 /* prod dependencies */
-const sass = require('node-sass');
+const sass = require("sass");
 const csso = require('csso');
 
 const {
@@ -18,7 +18,7 @@ const {
 const _compileScss = (file, destination) => {
   return read(file)
     .then((x) => sass.renderSync({data: x, file: file}))
-    .then(prop('css'))
+    .then((x) => x.css.toString())
     .then(write(destination));
 };
 
